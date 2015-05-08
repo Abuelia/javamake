@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+      <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+      <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+      <property name="hibernate.connection.password">root</property>
+      <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tcnotifications</property>
+      <property name="hibernate.connection.username">root</property>
+      <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+      <property name="hbm2ddl.auto">update</property>
+      <property name="show_sql">true</property>
+      <mapping class="com.tierconnect.entities.AeAccountsEntity"/>
+      <mapping class="com.tierconnect.entities.AeAclEntity"/>
+      <mapping class="com.tierconnect.entities.AeActivitylogEntity"/>
+      <mapping class="com.tierconnect.entities.AeCountriesEntity"/>
+      <mapping class="com.tierconnect.entities.AeDateFormatsEntity"/>
+      <mapping class="com.tierconnect.entities.AeDatetimeFormatsEntity"/>
+      <mapping class="com.tierconnect.entities.AeFrequenciesEntity"/>
+      <mapping class="com.tierconnect.entities.AeGroupsEntity"/>
+      <mapping class="com.tierconnect.entities.AeLanguagesEntity"/>
+      <mapping class="com.tierconnect.entities.AeModelTypesEntity"/>
+      <mapping class="com.tierconnect.entities.AeModulesEntity"/>
+      <mapping class="com.tierconnect.entities.AeSettingsEntity"/>
+      <mapping class="com.tierconnect.entities.AeTimezonesEntity"/>
+      <mapping class="com.tierconnect.entities.AeUsersEntity"/>
+      <mapping class="com.tierconnect.entities.AeUsersGroupsEntity"/>
+      <mapping class="com.tierconnect.entities.AeWebDriversEntity"/>
+      <mapping class="com.tierconnect.entities.CsCasesEntity"/>
+      <mapping class="com.tierconnect.entities.CsDefinitionsEntity"/>
+      <mapping class="com.tierconnect.entities.CsLinksCasesEntity"/>
+      <mapping class="com.tierconnect.entities.CveAegisEntity"/>
+      <mapping class="com.tierconnect.entities.FsFilesEntity"/>
+      <mapping class="com.tierconnect.entities.FsFolderEntity"/>
+      <mapping class="com.tierconnect.entities.JsJobsEntity"/>
+      <mapping class="com.tierconnect.entities.JsListsEntity"/>
+      <mapping class="com.tierconnect.entities.JsSettingsEntity"/>
+      <mapping class="com.tierconnect.entities.JsVaChSettingsEntity"/>
+      <mapping class="com.tierconnect.entities.JsVarianceChecksEntity"/>
+      <mapping class="com.tierconnect.entities.NsLinksNotificationsEntity"/>
+      <mapping class="com.tierconnect.entities.NsNotificationsEntity"/>
+      <mapping class="com.tierconnect.entities.SequenceEntity"/>
+      <mapping class="com.tierconnect.entities.VaChecksEntity"/>
+      <mapping class="com.tierconnect.entities.VaLinksChecksEntity"/>
+      <mapping class="com.tierconnect.entities.VaVariancesEntity"/>
+
+
+      <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>
