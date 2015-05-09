@@ -3,7 +3,7 @@ package com.tierconnect.entities;
 import javax.persistence.*;
 
 /**
- * Created by Paul Landaeta on 06/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
 @Table(name = "va_variances", schema = "", catalog = "tcnotifications")
@@ -17,8 +17,11 @@ public class VaVariancesEntity {
     private Integer ssFileId;
     private Integer ssFileBmId;
     private Short varianceType;
+    private Integer modelId;
+    private Integer modelTypeId;
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
     public int getId() {
         return id;
@@ -108,6 +111,26 @@ public class VaVariancesEntity {
         this.varianceType = varianceType;
     }
 
+    @Basic
+    @Column(name = "model_id")
+    public Integer getModelId() {
+        return modelId;
+    }
+
+    public void setModelId(Integer modelId) {
+        this.modelId = modelId;
+    }
+
+    @Basic
+    @Column(name = "model_type_id")
+    public Integer getModelTypeId() {
+        return modelTypeId;
+    }
+
+    public void setModelTypeId(Integer modelTypeId) {
+        this.modelTypeId = modelTypeId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -124,6 +147,8 @@ public class VaVariancesEntity {
         if (ssFileId != null ? !ssFileId.equals(that.ssFileId) : that.ssFileId != null) return false;
         if (ssFileBmId != null ? !ssFileBmId.equals(that.ssFileBmId) : that.ssFileBmId != null) return false;
         if (varianceType != null ? !varianceType.equals(that.varianceType) : that.varianceType != null) return false;
+        if (modelId != null ? !modelId.equals(that.modelId) : that.modelId != null) return false;
+        if (modelTypeId != null ? !modelTypeId.equals(that.modelTypeId) : that.modelTypeId != null) return false;
 
         return true;
     }
@@ -139,6 +164,8 @@ public class VaVariancesEntity {
         result = 31 * result + (ssFileId != null ? ssFileId.hashCode() : 0);
         result = 31 * result + (ssFileBmId != null ? ssFileBmId.hashCode() : 0);
         result = 31 * result + (varianceType != null ? varianceType.hashCode() : 0);
+        result = 31 * result + (modelId != null ? modelId.hashCode() : 0);
+        result = 31 * result + (modelTypeId != null ? modelTypeId.hashCode() : 0);
         return result;
     }
 }

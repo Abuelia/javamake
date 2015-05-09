@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by Paul Landaeta on 06/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
 @Table(name = "ae_departments", schema = "", catalog = "tcnotifications")
@@ -13,10 +13,11 @@ public class AeDepartmentsEntity {
     private Integer accountId;
     private String name;
     private Long parentId;
-    private AeDepartmentsEntity aeDepartmentsByParentId;
-    private Collection<AeDepartmentsEntity> aeDepartmentsesById;
+//    private AeDepartmentsEntity aeDepartmentsByParentId;
+//    private Collection<AeDepartmentsEntity> aeDepartmentsesById;
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
     public long getId() {
         return id;
@@ -79,23 +80,23 @@ public class AeDepartmentsEntity {
         result = 31 * result + (parentId != null ? parentId.hashCode() : 0);
         return result;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "parent_id", referencedColumnName = "id")
-    public AeDepartmentsEntity getAeDepartmentsByParentId() {
-        return aeDepartmentsByParentId;
-    }
-
-    public void setAeDepartmentsByParentId(AeDepartmentsEntity aeDepartmentsByParentId) {
-        this.aeDepartmentsByParentId = aeDepartmentsByParentId;
-    }
-
-    @OneToMany(mappedBy = "aeDepartmentsByParentId")
-    public Collection<AeDepartmentsEntity> getAeDepartmentsesById() {
-        return aeDepartmentsesById;
-    }
-
-    public void setAeDepartmentsesById(Collection<AeDepartmentsEntity> aeDepartmentsesById) {
-        this.aeDepartmentsesById = aeDepartmentsesById;
-    }
+//
+//    @ManyToOne
+//    @JoinColumn(name = "parent_id", referencedColumnName = "id")
+//    public AeDepartmentsEntity getAeDepartmentsByParentId() {
+//        return aeDepartmentsByParentId;
+//    }
+//
+//    public void setAeDepartmentsByParentId(AeDepartmentsEntity aeDepartmentsByParentId) {
+//        this.aeDepartmentsByParentId = aeDepartmentsByParentId;
+//    }
+//
+//    @OneToMany(mappedBy = "aeDepartmentsByParentId")
+//    public Collection<AeDepartmentsEntity> getAeDepartmentsesById() {
+//        return aeDepartmentsesById;
+//    }
+//
+//    public void setAeDepartmentsesById(Collection<AeDepartmentsEntity> aeDepartmentsesById) {
+//        this.aeDepartmentsesById = aeDepartmentsesById;
+//    }
 }

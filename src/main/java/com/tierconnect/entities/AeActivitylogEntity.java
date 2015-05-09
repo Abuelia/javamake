@@ -3,7 +3,7 @@ package com.tierconnect.entities;
 import javax.persistence.*;
 
 /**
- * Created by Paul Landaeta on 06/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
 @Table(name = "ae_activitylog", schema = "", catalog = "tcnotifications")
@@ -14,13 +14,17 @@ public class AeActivitylogEntity {
     private Integer modelId;
     private Integer modelTypeId;
     private Integer userId;
+    private Integer groupId;
     private Integer invitationId;
     private String message;
     private String jsonCopy;
     private Integer activityTypeId;
     private Integer noIssues;
+    private Integer reqModelTypeId;
+    private Integer reqModelId;
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
     public int getId() {
         return id;
@@ -81,6 +85,16 @@ public class AeActivitylogEntity {
     }
 
     @Basic
+    @Column(name = "group_id")
+    public Integer getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
+    }
+
+    @Basic
     @Column(name = "invitation_id")
     public Integer getInvitationId() {
         return invitationId;
@@ -130,6 +144,26 @@ public class AeActivitylogEntity {
         this.noIssues = noIssues;
     }
 
+    @Basic
+    @Column(name = "req_model_type_id")
+    public Integer getReqModelTypeId() {
+        return reqModelTypeId;
+    }
+
+    public void setReqModelTypeId(Integer reqModelTypeId) {
+        this.reqModelTypeId = reqModelTypeId;
+    }
+
+    @Basic
+    @Column(name = "req_model_id")
+    public Integer getReqModelId() {
+        return reqModelId;
+    }
+
+    public void setReqModelId(Integer reqModelId) {
+        this.reqModelId = reqModelId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -143,12 +177,16 @@ public class AeActivitylogEntity {
         if (modelId != null ? !modelId.equals(that.modelId) : that.modelId != null) return false;
         if (modelTypeId != null ? !modelTypeId.equals(that.modelTypeId) : that.modelTypeId != null) return false;
         if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
+        if (groupId != null ? !groupId.equals(that.groupId) : that.groupId != null) return false;
         if (invitationId != null ? !invitationId.equals(that.invitationId) : that.invitationId != null) return false;
         if (message != null ? !message.equals(that.message) : that.message != null) return false;
         if (jsonCopy != null ? !jsonCopy.equals(that.jsonCopy) : that.jsonCopy != null) return false;
         if (activityTypeId != null ? !activityTypeId.equals(that.activityTypeId) : that.activityTypeId != null)
             return false;
         if (noIssues != null ? !noIssues.equals(that.noIssues) : that.noIssues != null) return false;
+        if (reqModelTypeId != null ? !reqModelTypeId.equals(that.reqModelTypeId) : that.reqModelTypeId != null)
+            return false;
+        if (reqModelId != null ? !reqModelId.equals(that.reqModelId) : that.reqModelId != null) return false;
 
         return true;
     }
@@ -161,11 +199,14 @@ public class AeActivitylogEntity {
         result = 31 * result + (modelId != null ? modelId.hashCode() : 0);
         result = 31 * result + (modelTypeId != null ? modelTypeId.hashCode() : 0);
         result = 31 * result + (userId != null ? userId.hashCode() : 0);
+        result = 31 * result + (groupId != null ? groupId.hashCode() : 0);
         result = 31 * result + (invitationId != null ? invitationId.hashCode() : 0);
         result = 31 * result + (message != null ? message.hashCode() : 0);
         result = 31 * result + (jsonCopy != null ? jsonCopy.hashCode() : 0);
         result = 31 * result + (activityTypeId != null ? activityTypeId.hashCode() : 0);
         result = 31 * result + (noIssues != null ? noIssues.hashCode() : 0);
+        result = 31 * result + (reqModelTypeId != null ? reqModelTypeId.hashCode() : 0);
+        result = 31 * result + (reqModelId != null ? reqModelId.hashCode() : 0);
         return result;
     }
 }

@@ -3,12 +3,13 @@ package com.tierconnect.entities;
 import javax.persistence.*;
 
 /**
- * Created by Paul Landaeta on 06/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
 @Table(name = "va_checks", schema = "", catalog = "tcnotifications")
 public class VaChecksEntity {
     private int id;
+    private Integer linksChecksId;
     private Integer ctimeStart;
     private Integer ctimeEnd;
     private Short checkType;
@@ -16,6 +17,7 @@ public class VaChecksEntity {
     private String status;
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
     public int getId() {
         return id;
@@ -23,6 +25,16 @@ public class VaChecksEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "links_checks_id")
+    public Integer getLinksChecksId() {
+        return linksChecksId;
+    }
+
+    public void setLinksChecksId(Integer linksChecksId) {
+        this.linksChecksId = linksChecksId;
     }
 
     @Basic
@@ -83,6 +95,8 @@ public class VaChecksEntity {
         VaChecksEntity that = (VaChecksEntity) o;
 
         if (id != that.id) return false;
+        if (linksChecksId != null ? !linksChecksId.equals(that.linksChecksId) : that.linksChecksId != null)
+            return false;
         if (ctimeStart != null ? !ctimeStart.equals(that.ctimeStart) : that.ctimeStart != null) return false;
         if (ctimeEnd != null ? !ctimeEnd.equals(that.ctimeEnd) : that.ctimeEnd != null) return false;
         if (checkType != null ? !checkType.equals(that.checkType) : that.checkType != null) return false;
@@ -95,6 +109,7 @@ public class VaChecksEntity {
     @Override
     public int hashCode() {
         int result = id;
+        result = 31 * result + (linksChecksId != null ? linksChecksId.hashCode() : 0);
         result = 31 * result + (ctimeStart != null ? ctimeStart.hashCode() : 0);
         result = 31 * result + (ctimeEnd != null ? ctimeEnd.hashCode() : 0);
         result = 31 * result + (checkType != null ? checkType.hashCode() : 0);

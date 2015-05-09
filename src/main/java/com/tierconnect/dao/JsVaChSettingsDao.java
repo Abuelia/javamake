@@ -1,6 +1,6 @@
 package com.tierconnect.dao;
 
-import com.tierconnect.entities.JsListsEntity;
+import com.tierconnect.entities.JsVaChSettingsEntity;
 import com.tierconnect.interfaces.DaoInterface;
 import com.tierconnect.utilities.HibernateUtil;
 import org.hibernate.Session;
@@ -9,10 +9,9 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 /**
- * Created by Paul Landaeta on 04/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
-public class JsListDao implements DaoInterface<JsListsEntity,Integer> {
-
+public class JsVaChSettingsDao implements DaoInterface<JsVaChSettingsEntity,Integer>{
     private Session currentSession;
     private Transaction currentTransaction;
     public Session openCurrentSession() {
@@ -35,37 +34,37 @@ public class JsListDao implements DaoInterface<JsListsEntity,Integer> {
     }
 
     @Override
-    public JsListsEntity persist(JsListsEntity entity) {
+    public JsVaChSettingsEntity persist(JsVaChSettingsEntity entity) {
         currentSession.save(entity);
         currentSession.flush();
-        return findById(entity.getId());
+        return entity;
     }
 
     @Override
-    public void update(JsListsEntity entity) {
+    public void update(JsVaChSettingsEntity entity) {
         currentSession.update(entity);
     }
 
     @Override
-    public JsListsEntity findById(Integer id) {
-        JsListsEntity jsListsEntity=(JsListsEntity)currentSession.get(JsListsEntity.class,id);
-        return jsListsEntity;
+    public JsVaChSettingsEntity findById(Integer id) {
+        JsVaChSettingsEntity jsSettingsEntity=(JsVaChSettingsEntity)currentSession.get(JsVaChSettingsEntity.class,id);
+        return jsSettingsEntity;
     }
 
     @Override
-    public void delete(JsListsEntity entity) {
+    public void delete(JsVaChSettingsEntity entity) {
         currentSession.delete(entity);
     }
 
     @Override
-    public List<JsListsEntity> findAll() {
-        List<JsListsEntity> jsListsEntities=(List<JsListsEntity>)currentSession.createQuery("from JsListsEntity ");
-        return jsListsEntities;
+    public List<JsVaChSettingsEntity> findAll() {
+        List<JsVaChSettingsEntity> jsVaChSettingsEntities=(List<JsVaChSettingsEntity>)currentSession.createQuery("from JsVaChSettingsEntity ");
+        return jsVaChSettingsEntities;
     }
 
     @Override
     public void deleteAll() {
-        List<JsListsEntity> entities=findAll();
+        List<JsVaChSettingsEntity> entities=findAll();
         entities.forEach(this::delete);
     }
 }

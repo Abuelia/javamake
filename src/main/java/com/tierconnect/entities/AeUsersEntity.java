@@ -2,11 +2,12 @@ package com.tierconnect.entities;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by Paul Landaeta on 06/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
 @javax.persistence.Table(name = "ae_users", schema = "", catalog = "tcnotifications")
@@ -14,6 +15,7 @@ public class AeUsersEntity {
     private int id;
 
     @Id
+    @GeneratedValue
     @javax.persistence.Column(name = "id")
     public int getId() {
         return id;

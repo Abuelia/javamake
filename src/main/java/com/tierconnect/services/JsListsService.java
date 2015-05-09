@@ -29,14 +29,14 @@ public class JsListsService {
         jsListDao.closeCurrentSessionwithTransaction();
     }
 
-    public JsListsEntity findById(String id) {
+    public JsListsEntity findById(Integer id) {
         jsListDao.openCurrentSessionwithTransaction();
         JsListsEntity jsListsEntity = jsListDao.findById(id);
         jsListDao.closeCurrentSessionwithTransaction();
         return jsListsEntity;
     }
 
-    public void delete(String id) {
+    public void delete(Integer id) {
         jsListDao.openCurrentSessionwithTransaction();
         JsListsEntity JsListsEntity = jsListDao.findById(id);
         jsListDao.delete(JsListsEntity);

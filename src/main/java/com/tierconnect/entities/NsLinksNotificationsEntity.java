@@ -3,7 +3,7 @@ package com.tierconnect.entities;
 import javax.persistence.*;
 
 /**
- * Created by Paul Landaeta on 06/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
 @Table(name = "ns_links_notifications", schema = "", catalog = "tcnotifications")
@@ -12,10 +12,11 @@ public class NsLinksNotificationsEntity {
     private Integer modelId;
     private Integer modelTypeId;
     private Integer folderId;
-    private Integer description;
+    private String description;
     private Long ctime;
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
     public int getId() {
         return id;
@@ -57,11 +58,11 @@ public class NsLinksNotificationsEntity {
 
     @Basic
     @Column(name = "description")
-    public Integer getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Integer description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

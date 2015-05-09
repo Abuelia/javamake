@@ -3,7 +3,7 @@ package com.tierconnect.entities;
 import javax.persistence.*;
 
 /**
- * Created by Paul Landaeta on 06/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
 @Table(name = "ae_modules", schema = "", catalog = "tcnotifications")
@@ -16,6 +16,7 @@ public class AeModulesEntity {
     private byte enabled;
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
     public String getId() {
         return id;

@@ -45,6 +45,8 @@
       <mapping class="com.tierconnect.entities.VaChecksEntity"/>
       <mapping class="com.tierconnect.entities.VaLinksChecksEntity"/>
       <mapping class="com.tierconnect.entities.VaVariancesEntity"/>
+      <mapping class="com.tierconnect.entities.AeAcitivityTypeEntity"/>
+      <mapping class="com.tierconnect.entities.AeDepartmentsEntity"/>
 
 
       <!-- DB schema will be updated if needed -->

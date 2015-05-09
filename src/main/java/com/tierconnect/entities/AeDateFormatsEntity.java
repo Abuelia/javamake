@@ -3,7 +3,7 @@ package com.tierconnect.entities;
 import javax.persistence.*;
 
 /**
- * Created by Paul Landaeta on 06/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
 @Table(name = "ae_date_formats", schema = "", catalog = "tcnotifications")
@@ -14,6 +14,7 @@ public class AeDateFormatsEntity {
     private String label;
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
     public int getId() {
         return id;

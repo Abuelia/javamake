@@ -3,12 +3,13 @@ package com.tierconnect.entities;
 import javax.persistence.*;
 
 /**
- * Created by Paul Landaeta on 06/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
 @Table(name = "ns_notifications", schema = "", catalog = "tcnotifications")
 public class NsNotificationsEntity {
     private int id;
+    private Integer linkNsId;
     private String name;
     private Short type;
     private Integer frequencyId;
@@ -18,8 +19,11 @@ public class NsNotificationsEntity {
     private Integer userToId;
     private Integer groupToId;
     private String rrule;
+    private Integer modelId;
+    private Integer modelTypeId;
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
     public int getId() {
         return id;
@@ -27,6 +31,16 @@ public class NsNotificationsEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "link_ns_id")
+    public Integer getLinkNsId() {
+        return linkNsId;
+    }
+
+    public void setLinkNsId(Integer linkNsId) {
+        this.linkNsId = linkNsId;
     }
 
     @Basic
@@ -119,6 +133,26 @@ public class NsNotificationsEntity {
         this.rrule = rrule;
     }
 
+    @Basic
+    @Column(name = "model_id")
+    public Integer getModelId() {
+        return modelId;
+    }
+
+    public void setModelId(Integer modelId) {
+        this.modelId = modelId;
+    }
+
+    @Basic
+    @Column(name = "model_type_id")
+    public Integer getModelTypeId() {
+        return modelTypeId;
+    }
+
+    public void setModelTypeId(Integer modelTypeId) {
+        this.modelTypeId = modelTypeId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -127,6 +161,7 @@ public class NsNotificationsEntity {
         NsNotificationsEntity that = (NsNotificationsEntity) o;
 
         if (id != that.id) return false;
+        if (linkNsId != null ? !linkNsId.equals(that.linkNsId) : that.linkNsId != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (type != null ? !type.equals(that.type) : that.type != null) return false;
         if (frequencyId != null ? !frequencyId.equals(that.frequencyId) : that.frequencyId != null) return false;
@@ -136,6 +171,8 @@ public class NsNotificationsEntity {
         if (userToId != null ? !userToId.equals(that.userToId) : that.userToId != null) return false;
         if (groupToId != null ? !groupToId.equals(that.groupToId) : that.groupToId != null) return false;
         if (rrule != null ? !rrule.equals(that.rrule) : that.rrule != null) return false;
+        if (modelId != null ? !modelId.equals(that.modelId) : that.modelId != null) return false;
+        if (modelTypeId != null ? !modelTypeId.equals(that.modelTypeId) : that.modelTypeId != null) return false;
 
         return true;
     }
@@ -143,6 +180,7 @@ public class NsNotificationsEntity {
     @Override
     public int hashCode() {
         int result = id;
+        result = 31 * result + (linkNsId != null ? linkNsId.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (type != null ? type.hashCode() : 0);
         result = 31 * result + (frequencyId != null ? frequencyId.hashCode() : 0);
@@ -152,6 +190,8 @@ public class NsNotificationsEntity {
         result = 31 * result + (userToId != null ? userToId.hashCode() : 0);
         result = 31 * result + (groupToId != null ? groupToId.hashCode() : 0);
         result = 31 * result + (rrule != null ? rrule.hashCode() : 0);
+        result = 31 * result + (modelId != null ? modelId.hashCode() : 0);
+        result = 31 * result + (modelTypeId != null ? modelTypeId.hashCode() : 0);
         return result;
     }
 }

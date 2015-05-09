@@ -6,10 +6,10 @@ import javax.persistence.*;
  * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
-@Table(name = "ae_web_drivers", schema = "", catalog = "tcnotifications")
-public class AeWebDriversEntity {
+@Table(name = "ae_acitivity_type", schema = "", catalog = "tcnotifications")
+public class AeAcitivityTypeEntity {
     private int id;
-    private String webdriver;
+    private String description;
 
     @Id
     @GeneratedValue
@@ -23,13 +23,13 @@ public class AeWebDriversEntity {
     }
 
     @Basic
-    @Column(name = "webdriver")
-    public String getWebdriver() {
-        return webdriver;
+    @Column(name = "description")
+    public String getDescription() {
+        return description;
     }
 
-    public void setWebdriver(String webdriver) {
-        this.webdriver = webdriver;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
@@ -37,10 +37,10 @@ public class AeWebDriversEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        AeWebDriversEntity that = (AeWebDriversEntity) o;
+        AeAcitivityTypeEntity that = (AeAcitivityTypeEntity) o;
 
         if (id != that.id) return false;
-        if (webdriver != null ? !webdriver.equals(that.webdriver) : that.webdriver != null) return false;
+        if (description != null ? !description.equals(that.description) : that.description != null) return false;
 
         return true;
     }
@@ -48,7 +48,7 @@ public class AeWebDriversEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (webdriver != null ? webdriver.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }
 }

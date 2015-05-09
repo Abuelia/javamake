@@ -3,7 +3,7 @@ package com.tierconnect.entities;
 import javax.persistence.*;
 
 /**
- * Created by Paul Landaeta on 06/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
 @Table(name = "ae_acl", schema = "", catalog = "tcnotifications")
@@ -15,6 +15,7 @@ public class AeAclEntity {
     private byte level;
 
     @Id
+    @GeneratedValue
     @Column(name = "acl_module_id")
     public int getAclModuleId() {
         return aclModuleId;

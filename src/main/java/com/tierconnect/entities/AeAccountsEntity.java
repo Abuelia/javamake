@@ -2,12 +2,13 @@ package com.tierconnect.entities;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
- * Created by Paul Landaeta on 06/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
 @javax.persistence.Table(name = "ae_accounts", schema = "", catalog = "tcnotifications")
@@ -15,6 +16,7 @@ public class AeAccountsEntity {
     private int id;
 
     @Id
+    @GeneratedValue
     @javax.persistence.Column(name = "id")
     public int getId() {
         return id;
@@ -420,6 +422,42 @@ public class AeAccountsEntity {
         this.subaccountsPaid = subaccountsPaid;
     }
 
+    private Short runBmAuto;
+
+    @Basic
+    @javax.persistence.Column(name = "run_bm_auto")
+    public Short getRunBmAuto() {
+        return runBmAuto;
+    }
+
+    public void setRunBmAuto(Short runBmAuto) {
+        this.runBmAuto = runBmAuto;
+    }
+
+    private String baseUrl;
+
+    @Basic
+    @javax.persistence.Column(name = "base_url")
+    public String getBaseUrl() {
+        return baseUrl;
+    }
+
+    public void setBaseUrl(String baseUrl) {
+        this.baseUrl = baseUrl;
+    }
+
+    private String basePath;
+
+    @Basic
+    @javax.persistence.Column(name = "base_path")
+    public String getBasePath() {
+        return basePath;
+    }
+
+    public void setBasePath(String basePath) {
+        this.basePath = basePath;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -467,6 +505,9 @@ public class AeAccountsEntity {
         if (mailPkgPaid != null ? !mailPkgPaid.equals(that.mailPkgPaid) : that.mailPkgPaid != null) return false;
         if (subaccountsPaid != null ? !subaccountsPaid.equals(that.subaccountsPaid) : that.subaccountsPaid != null)
             return false;
+        if (runBmAuto != null ? !runBmAuto.equals(that.runBmAuto) : that.runBmAuto != null) return false;
+        if (baseUrl != null ? !baseUrl.equals(that.baseUrl) : that.baseUrl != null) return false;
+        if (basePath != null ? !basePath.equals(that.basePath) : that.basePath != null) return false;
 
         return true;
     }
@@ -507,6 +548,9 @@ public class AeAccountsEntity {
         result = 31 * result + (mailPkgPaid != null ? mailPkgPaid.hashCode() : 0);
         result = 31 * result + subaccountsParent;
         result = 31 * result + (subaccountsPaid != null ? subaccountsPaid.hashCode() : 0);
+        result = 31 * result + (runBmAuto != null ? runBmAuto.hashCode() : 0);
+        result = 31 * result + (baseUrl != null ? baseUrl.hashCode() : 0);
+        result = 31 * result + (basePath != null ? basePath.hashCode() : 0);
         return result;
     }
 }

@@ -3,7 +3,7 @@ package com.tierconnect.entities;
 import javax.persistence.*;
 
 /**
- * Created by Paul Landaeta on 06/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
 @Table(name = "fs_files", schema = "", catalog = "tcnotifications")
@@ -21,6 +21,7 @@ public class FsFilesEntity {
     private long size;
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
     public long getId() {
         return id;

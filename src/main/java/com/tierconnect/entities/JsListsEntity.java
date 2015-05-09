@@ -3,7 +3,7 @@ package com.tierconnect.entities;
 import javax.persistence.*;
 
 /**
- * Created by Paul Landaeta on 06/05/2015.
+ * Created by Paul Landaeta on 09/05/2015.
  */
 @Entity
 @Table(name = "js_lists", schema = "", catalog = "tcnotifications")
@@ -15,6 +15,7 @@ public class JsListsEntity {
     private String name;
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
     public int getId() {
         return id;
